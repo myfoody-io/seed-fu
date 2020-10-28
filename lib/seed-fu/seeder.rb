@@ -60,7 +60,7 @@ module SeedFu
 
       def seed_record(data)
         record = find_or_initialize_record(data)
-        return if @options[:insert_only] && !record.new_record?
+        return record if @options[:insert_only] && !record.new_record?
 
         puts " - #{@model_class} #{data.inspect}" unless @options[:quiet]
 
